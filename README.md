@@ -20,8 +20,17 @@ Since many neural network projects have succeeded with classification tasks usin
 ### Hypothesis
 We decided to analyze whether spectral features by themselves are sufficient to classify the timbre of an instrument. Perhaps, a model with holistic information about a musical note's salient temporal, spectral and meta-features will be more effective at identifying its origin instrument thatn a model that only includes spectral features. 
 
-### Nsynth [Dataset](link:https://magenta.tensorflow.org/datasets/nsynth "NSyth dataset")
-We analyzed 13 features that included both spectral and non-spectral features.
+### Nsynth Dataset
+Taken from the Nsynth [dataset](https://magenta.tensorflow.org/datasets/nsynth "NSyth dataset"), we analyzed 12 features that included both spectral and non-spectral features. Some spectral/temporal features include fast decay, long release, percussive, and reverb. Some specral features include brightness, darkness, and multiphonic.
+
+### Neural Network Architecture
+We first attempted to do binary classification across all instrument families. We thus had a simple multi-layer perceptron with 3 layers, having an input layer of 12 (relu activation) , hidden layer of 6 (relu activation), and output layer of 2 (sigmoid activation). Our loss function utilized sparse categorical cross entropy, compiled with an adam optimizer, and trained using 8 epochs and batch size of 12.
+
+Results of binary classification: 
+
+![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png)
+
+Three layers, with an input layer of 12 neurons (For each of the features),
 
 
 
