@@ -23,14 +23,33 @@ We decided to analyze whether spectral features by themselves are sufficient to 
 ### Nsynth Dataset
 Taken from the Nsynth [dataset](https://magenta.tensorflow.org/datasets/nsynth "NSyth dataset"), we analyzed 12 features that included both spectral and non-spectral features. Some spectral/temporal features include fast decay, long release, percussive, and reverb. Some specral features include brightness, darkness, and multiphonic.
 
-### Neural Network Architecture
+### Neural Network Architecture and Performance
+
+### 1) Binary classification: 
+
 We first attempted to do binary classification across all instrument families. We thus had a simple multi-layer perceptron with 3 layers, having an input layer of 12 (relu activation) , hidden layer of 6 (relu activation), and output layer of 2 (sigmoid activation). Our loss function utilized sparse categorical cross entropy, compiled with an adam optimizer, and trained using 8 epochs and batch size of 12.
 
-Results of binary classification: 
+![binary](https://github.com/eglouberman/Instrument-AI/blob/master/Images/Binary_classification2.png)
 
-![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png)
+As you can see, we achieved great results for neural network binary classification using simple neural network architecture.
 
-Three layers, with an input layer of 12 neurons (For each of the features),
+### 2) Multi-class classification
+
+Next, we modified our multi perceptron to hand multi-class. We thus had a simple multi-layer perceptron with 3 layers, having an input layer of 12 (relu activation) , hidden layer of 12 (relu activation), and output layer of 12 (softmax activation). Our loss function utilized categorical cross entropy, compiled with an adam optimizer, and trained using 8 epochs and batch size of 12.
+
+[image]
+
+
+We got a worse output accuracy for the multiclass model, which was expected due to the high amount of noise in the data. All 12 features only achieved around a 50% accuracy. Without percussive or reverb qualities, the model did not perform as well but still pretty similarly. This is important to note because percussive and reverb are temporal qualities, so this tells us that our system does not rely on utilizing temporal qualities too heavily.
+
+# Convolutional Neural Network with Raw Audio as the input
+
+We then decided to test whether we could only use spectral qualities from the audio data in order to see if a neural network can perform better. To do this, we decided to utilize a CNN because they have been empirically tested to work well with audio classification and they have a specific struture that mimic the biological structure of the human sensory system. They are organized in a series of preprocessing layers that perform different trasnforamtions and are great at detecting features/edges (Huang, 2018). 
+
+We decided to play with different pre-processing methods and modify the input data to our network. In all, we compared utilizing an audio file's melspectrogram data, log(melspectrogram) data, and MFCC data. While all inputs did reasonabaly well, MFCC data yielded the best results.
+
+
+
 
 
 
