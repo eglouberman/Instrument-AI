@@ -46,8 +46,19 @@ We got a worse output accuracy for the multiclass model, which was expected due 
 
 We then decided to test whether we could only use spectral qualities from the audio data in order to see if a neural network can perform better. To do this, we decided to utilize a CNN because they have been empirically tested to work well with audio classification and they have a specific struture that mimic the biological structure of the human sensory system. They are organized in a series of preprocessing layers that perform different trasnforamtions and are great at detecting features/edges (Huang, 2018). 
 
-We decided to play with different pre-processing methods and modify the input data to our network. In all, we compared utilizing an audio file's melspectrogram data, log(melspectrogram) data, and MFCC data. While all inputs did reasonabaly well, MFCC data yielded the best results.
+We decided to play with different pre-processing methods and modify the input data to our network. In all, we compared utilizing an audio file's melspectrogram data, log(melspectrogram) data, and MFCC data. While all inputs did reasonabaly well, MFCC data yielded the best results, as shown below: 
 
+![image](https://github.com/eglouberman/Instrument-AI/blob/master/Images/mfccs_confusion_with_title.png)
+
+As you can see, our system achieved 94 percent accuracy overall. All instruments had a recall greater than 90 percent except for reed.
+
+
+### Breaking the system and what it means for how the neural network behaves
+In order to truly understand how the network functions, we tried to test our highly accurate model and see if it generalizes well to electronic and synthetic instruments. Given that it did well on acoustic instruments, we assumed that it should do a fairly good job at generalizing to other instruments since to the human ear, they sound similar. However, we achieved below 40 percent accuracy for both new instrument sources. This led us to believe that there was something intrinsically unique within the MFCC data to indicate a difference between acoustic, synthetic, and electronic sounds.
+
+Additionally, we also tried to reverse the MFCC data to see if our model can still perform well. Theoretically, this should be easy since we attempted to take out all temporal effects. However, the system did not do a great job of generalizing in this case, as we achieved below a 40 percent accuracy. Thus, it led us to believe that our model did in fact take into account temporal qualities in the data to classify instrument family. Below is a chart that summarizes the breakdown of the model over different datasets.
+
+![image]()
 
 
 
