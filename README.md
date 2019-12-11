@@ -7,7 +7,7 @@ This project was completed as a final project for UCLA's Neural Networks class, 
 
 ## Background
 
-What is sound in music? Musical instruments are unique to each other for several reasons. Primarily, instruments contain varying harmonic overtones, which make up its timbre. Note from different instruments are composed of unique combinations of harmonic frequencies. Sound can be identified by being deconstructed into its constituent frequences.
+What is sound in music? Musical instruments are unique to each other for several reasons. Primarily, instruments contain varying harmonic overtones, which make up its timbre. Notes from different instruments are composed of unique combinations of harmonic frequencies. Sound can be identified by being deconstructed into its constituent frequencies. 
 
 ### Spectral importance
 
