@@ -59,7 +59,7 @@ In order to truly understand how the network functions, we tried to test our hig
 Additionally, we also tried to reverse the MFCC data to see if our model can still perform well. Theoretically, this should be easy since we attempted to take out all temporal effects. However, the system did not do a great job of generalizing in this case, as we achieved below a 40 percent accuracy. Thus, it led us to believe that our model did in fact take into account temporal qualities in the data to classify instrument family. Below is a chart that summarizes the breakdown of the model over different datasets.
 
 
-<img align="center" src="https://github.com/eglouberman/Instrument-AI/blob/master/Images/Instrument_types.png" alt="hi">
+<img align="middle" src="https://github.com/eglouberman/Instrument-AI/blob/master/Images/Instrument_types.png" alt="hi">
 
 
 
