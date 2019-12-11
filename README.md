@@ -37,7 +37,7 @@ As you can see, we achieved great results for neural network binary classificati
 
 Next, we modified our multi perceptron to hand multi-class. We thus had a simple multi-layer perceptron with 3 layers, having an input layer of 12 (relu activation) , hidden layer of 12 (relu activation), and output layer of 12 (softmax activation). Our loss function utilized categorical cross entropy, compiled with an adam optimizer, and trained using 8 epochs and batch size of 12.
 
-[image]
+![image](https://github.com/eglouberman/Instrument-AI/blob/master/Images/multiclassMLP.png)
 
 
 We got a worse output accuracy for the multiclass model, which was expected due to the high amount of noise in the data. All 12 features only achieved around a 50% accuracy. Without percussive or reverb qualities, the model did not perform as well but still pretty similarly. This is important to note because percussive and reverb are temporal qualities, so this tells us that our system does not rely on utilizing temporal qualities too heavily.
